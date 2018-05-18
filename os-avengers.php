@@ -109,3 +109,43 @@ function osen_avenger_type() {
 
 }
 add_action( 'init', 'osen_avenger_type', 0 );
+
+// Register Custom Taxonomy
+function osen_avenger_skill() {
+
+	$labels = array(
+		'name'                       => _x( 'Skills', 'Taxonomy General Name', 'osen' ),
+		'singular_name'              => _x( 'Skill', 'Taxonomy Singular Name', 'osen' ),
+		'menu_name'                  => __( 'Skills', 'osen' ),
+		'all_items'                  => __( 'All Skills', 'osen' ),
+		'parent_item'                => __( 'Parent Skill', 'osen' ),
+		'parent_item_colon'          => __( 'Parent Skill:', 'osen' ),
+		'new_item_name'              => __( 'New Skill Name', 'osen' ),
+		'add_new_item'               => __( 'Add New Skill', 'osen' ),
+		'edit_item'                  => __( 'Edit Skill', 'osen' ),
+		'update_item'                => __( 'Update Skill', 'osen' ),
+		'view_item'                  => __( 'View Skill', 'osen' ),
+		'separate_items_with_commas' => __( 'Separate skills with commas', 'osen' ),
+		'add_or_remove_items'        => __( 'Add or remove items', 'osen' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'osen' ),
+		'popular_items'              => __( 'Popular Skills', 'osen' ),
+		'search_items'               => __( 'Search Skills', 'osen' ),
+		'not_found'                  => __( 'Not Found', 'osen' ),
+		'no_terms'                   => __( 'No skills', 'osen' ),
+		'items_list'                 => __( 'Skills list', 'osen' ),
+		'items_list_navigation'      => __( 'Skills list navigation', 'osen' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => false,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'avenger_skill', array( 'avenger' ), $args );
+
+}
+add_action( 'init', 'osen_avenger_skill', 0 );
+
